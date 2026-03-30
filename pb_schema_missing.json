@@ -1,0 +1,313 @@
+[
+  {
+    "id": "pbc_7000000001",
+    "name": "tenants",
+    "type": "base",
+    "system": false,
+    "listRule": null, "viewRule": null, "createRule": null, "updateRule": null, "deleteRule": null,
+    "indexes": [],
+    "fields": [
+      { "id": "tn_id", "name": "id", "type": "text", "system": true, "required": true, "primaryKey": true, "autogeneratePattern": "[a-z0-9]{15}", "pattern": "^[a-z0-9]+$" },
+      { "id": "tn_1", "name": "name", "type": "text", "required": true },
+      { "id": "tn_c", "name": "created", "type": "autodate", "system": false, "onCreate": true, "onUpdate": false },
+      { "id": "tn_u", "name": "updated", "type": "autodate", "system": false, "onCreate": true, "onUpdate": true }
+    ]
+  },
+  {
+    "id": "pbc_7000000002",
+    "name": "lingxing_credentials",
+    "type": "base",
+    "system": false,
+    "listRule": null, "viewRule": null, "createRule": null, "updateRule": null, "deleteRule": null,
+    "indexes": [],
+    "fields": [
+      { "id": "lc_id", "name": "id", "type": "text", "system": true, "required": true, "primaryKey": true, "autogeneratePattern": "[a-z0-9]{15}", "pattern": "^[a-z0-9]+$" },
+      { "id": "lc_1", "name": "tenant_id", "type": "text", "required": true },
+      { "id": "lc_2", "name": "app_key", "type": "text", "required": true },
+      { "id": "lc_3", "name": "app_secret", "type": "text", "required": true },
+      { "id": "lc_4", "name": "warehouse_ids", "type": "json" },
+      { "id": "lc_5", "name": "auth_status", "type": "number" },
+      { "id": "lc_6", "name": "sync_enabled", "type": "bool" },
+      { "id": "lc_7", "name": "last_sync_at", "type": "date" },
+      { "id": "lc_8", "name": "last_sync_customer", "type": "text" },
+      { "id": "lc_c", "name": "created", "type": "autodate", "system": false, "onCreate": true, "onUpdate": false },
+      { "id": "lc_u", "name": "updated", "type": "autodate", "system": false, "onCreate": true, "onUpdate": true }
+    ]
+  },
+  {
+    "id": "pbc_7000000003",
+    "name": "inventory_warnings",
+    "type": "base",
+    "system": false,
+    "listRule": null, "viewRule": null, "createRule": null, "updateRule": null, "deleteRule": null,
+    "indexes": [],
+    "fields": [
+      { "id": "iw_id", "name": "id", "type": "text", "system": true, "required": true, "primaryKey": true, "autogeneratePattern": "[a-z0-9]{15}", "pattern": "^[a-z0-9]+$" },
+      { "id": "iw_1", "name": "tenant_id", "type": "text" },
+      { "id": "iw_2", "name": "sku", "type": "text", "required": true },
+      { "id": "iw_3", "name": "warning_qty", "type": "number", "required": true },
+      { "id": "iw_4", "name": "is_active", "type": "bool" },
+      { "id": "iw_c", "name": "created", "type": "autodate", "system": false, "onCreate": true, "onUpdate": false },
+      { "id": "iw_u", "name": "updated", "type": "autodate", "system": false, "onCreate": true, "onUpdate": true }
+    ]
+  },
+  {
+    "id": "pbc_7000000004",
+    "name": "user_profiles",
+    "type": "base",
+    "system": false,
+    "listRule": null, "viewRule": null, "createRule": null, "updateRule": null, "deleteRule": null,
+    "indexes": [],
+    "fields": [
+      { "id": "up_id", "name": "id", "type": "text", "system": true, "required": true, "primaryKey": true, "autogeneratePattern": "[a-z0-9]{15}", "pattern": "^[a-z0-9]+$" },
+      { "id": "up_1", "name": "tenant_id", "type": "text" },
+      { "id": "up_2", "name": "warehouse_id", "type": "text" },
+      { "id": "up_3", "name": "display_name", "type": "text" },
+      { "id": "up_4", "name": "email", "type": "text" },
+      { "id": "up_5", "name": "role", "type": "text" },
+      { "id": "up_6", "name": "language", "type": "text" },
+      { "id": "up_7", "name": "is_active", "type": "bool" },
+      { "id": "up_8", "name": "assigned_customer_codes", "type": "json" },
+      { "id": "up_c", "name": "created", "type": "autodate", "system": false, "onCreate": true, "onUpdate": false },
+      { "id": "up_u", "name": "updated", "type": "autodate", "system": false, "onCreate": true, "onUpdate": true }
+    ]
+  },
+  {
+    "id": "pbc_7000000005",
+    "name": "todo_comments",
+    "type": "base",
+    "system": false,
+    "listRule": null, "viewRule": null, "createRule": null, "updateRule": null, "deleteRule": null,
+    "indexes": [],
+    "fields": [
+      { "id": "tc_id", "name": "id", "type": "text", "system": true, "required": true, "primaryKey": true, "autogeneratePattern": "[a-z0-9]{15}", "pattern": "^[a-z0-9]+$" },
+      { "id": "tc_1", "name": "todo_id", "type": "text", "required": true },
+      { "id": "tc_2", "name": "author_id", "type": "text" },
+      { "id": "tc_3", "name": "content_original", "type": "text", "required": true },
+      { "id": "tc_4", "name": "content_zh", "type": "text" },
+      { "id": "tc_5", "name": "content_es", "type": "text" },
+      { "id": "tc_6", "name": "original_lang", "type": "text" },
+      { "id": "tc_c", "name": "created", "type": "autodate", "system": false, "onCreate": true, "onUpdate": false },
+      { "id": "tc_u", "name": "updated", "type": "autodate", "system": false, "onCreate": true, "onUpdate": true }
+    ]
+  },
+  {
+    "id": "pbc_7000000006",
+    "name": "reminder_logs",
+    "type": "base",
+    "system": false,
+    "listRule": null, "viewRule": null, "createRule": null, "updateRule": null, "deleteRule": null,
+    "indexes": [],
+    "fields": [
+      { "id": "rl_id", "name": "id", "type": "text", "system": true, "required": true, "primaryKey": true, "autogeneratePattern": "[a-z0-9]{15}", "pattern": "^[a-z0-9]+$" },
+      { "id": "rl_1", "name": "todo_id", "type": "text" },
+      { "id": "rl_2", "name": "sent_to", "type": "text", "required": true },
+      { "id": "rl_3", "name": "sent_at", "type": "date" },
+      { "id": "rl_4", "name": "reminder_date", "type": "date", "required": true },
+      { "id": "rl_c", "name": "created", "type": "autodate", "system": false, "onCreate": true, "onUpdate": false },
+      { "id": "rl_u", "name": "updated", "type": "autodate", "system": false, "onCreate": true, "onUpdate": true }
+    ]
+  },
+  {
+    "id": "pbc_7000000007",
+    "name": "mx_sepomex",
+    "type": "base",
+    "system": false,
+    "listRule": null, "viewRule": null, "createRule": null, "updateRule": null, "deleteRule": null,
+    "indexes": [],
+    "fields": [
+      { "id": "mx_id", "name": "id", "type": "text", "system": true, "required": true, "primaryKey": true, "autogeneratePattern": "[a-z0-9]{15}", "pattern": "^[a-z0-9]+$" },
+      { "id": "mx_1", "name": "cp", "type": "text", "required": true },
+      { "id": "mx_2", "name": "colonia", "type": "text" },
+      { "id": "mx_3", "name": "municipio", "type": "text" },
+      { "id": "mx_4", "name": "estado", "type": "text" },
+      { "id": "mx_c", "name": "created", "type": "autodate", "system": false, "onCreate": true, "onUpdate": false },
+      { "id": "mx_u", "name": "updated", "type": "autodate", "system": false, "onCreate": true, "onUpdate": true }
+    ]
+  },
+  {
+    "id": "pbc_7000000008",
+    "name": "shipping_orders",
+    "type": "base",
+    "system": false,
+    "listRule": null, "viewRule": null, "createRule": null, "updateRule": null, "deleteRule": null,
+    "indexes": [],
+    "fields": [
+      { "id": "so_id", "name": "id", "type": "text", "system": true, "required": true, "primaryKey": true, "autogeneratePattern": "[a-z0-9]{15}", "pattern": "^[a-z0-9]+$" },
+      { "id": "so_1", "name": "tenant_id", "type": "text" },
+      { "id": "so_2", "name": "customer_code", "type": "text", "required": true },
+      { "id": "so_3", "name": "customer_name", "type": "text" },
+      { "id": "so_4", "name": "origin_name", "type": "text" },
+      { "id": "so_5", "name": "origin_phone", "type": "text" },
+      { "id": "so_6", "name": "origin_email", "type": "text" },
+      { "id": "so_7", "name": "origin_company", "type": "text" },
+      { "id": "so_8", "name": "origin_address", "type": "text" },
+      { "id": "so_9", "name": "origin_cp", "type": "text" },
+      { "id": "so_10", "name": "origin_colonia", "type": "text" },
+      { "id": "so_11", "name": "origin_city", "type": "text" },
+      { "id": "so_12", "name": "origin_state", "type": "text" },
+      { "id": "so_13", "name": "dest_name", "type": "text", "required": true },
+      { "id": "so_14", "name": "dest_phone", "type": "text", "required": true },
+      { "id": "so_15", "name": "dest_email", "type": "text" },
+      { "id": "so_16", "name": "dest_address", "type": "text", "required": true },
+      { "id": "so_17", "name": "dest_cp", "type": "text", "required": true },
+      { "id": "so_18", "name": "dest_colonia", "type": "text", "required": true },
+      { "id": "so_19", "name": "dest_city", "type": "text", "required": true },
+      { "id": "so_20", "name": "dest_state", "type": "text", "required": true },
+      { "id": "so_21", "name": "pkg_content", "type": "text" },
+      { "id": "so_22", "name": "pkg_length", "type": "number" },
+      { "id": "so_23", "name": "pkg_width", "type": "number" },
+      { "id": "so_24", "name": "pkg_height", "type": "number" },
+      { "id": "so_25", "name": "pkg_weight", "type": "number", "required": true },
+      { "id": "so_26", "name": "logistics_channel", "type": "text" },
+      { "id": "so_27", "name": "outbound_order_no", "type": "text" },
+      { "id": "so_28", "name": "oms_status", "type": "text" },
+      { "id": "so_29", "name": "oms_error", "type": "text" },
+      { "id": "so_30", "name": "oms_response", "type": "json" },
+      { "id": "so_c", "name": "created", "type": "autodate", "system": false, "onCreate": true, "onUpdate": false },
+      { "id": "so_u", "name": "updated", "type": "autodate", "system": false, "onCreate": true, "onUpdate": true }
+    ]
+  },
+  {
+    "id": "pbc_7000000009",
+    "name": "client_accounts",
+    "type": "base",
+    "system": false,
+    "listRule": null, "viewRule": null, "createRule": null, "updateRule": null, "deleteRule": null,
+    "indexes": [],
+    "fields": [
+      { "id": "ca_id", "name": "id", "type": "text", "system": true, "required": true, "primaryKey": true, "autogeneratePattern": "[a-z0-9]{15}", "pattern": "^[a-z0-9]+$" },
+      { "id": "ca_1", "name": "customer_code", "type": "text", "required": true },
+      { "id": "ca_2", "name": "display_name", "type": "text", "required": true },
+      { "id": "ca_3", "name": "email", "type": "text", "required": true },
+      { "id": "ca_4", "name": "role", "type": "text" },
+      { "id": "ca_5", "name": "is_active", "type": "bool" },
+      { "id": "ca_c", "name": "created", "type": "autodate", "system": false, "onCreate": true, "onUpdate": false },
+      { "id": "ca_u", "name": "updated", "type": "autodate", "system": false, "onCreate": true, "onUpdate": true }
+    ]
+  },
+  {
+    "id": "pbc_7000000010",
+    "name": "scan_settings",
+    "type": "base",
+    "system": false,
+    "listRule": null, "viewRule": null, "createRule": null, "updateRule": null, "deleteRule": null,
+    "indexes": [],
+    "fields": [
+      { "id": "ss_id", "name": "id", "type": "text", "system": true, "required": true, "primaryKey": true, "autogeneratePattern": "[a-z0-9]{15}", "pattern": "^[a-z0-9]+$" },
+      { "id": "ss_1", "name": "tenant_id", "type": "text" },
+      { "id": "ss_2", "name": "name", "type": "text", "required": true },
+      { "id": "ss_3", "name": "is_active", "type": "bool" },
+      { "id": "ss_4", "name": "free_mode", "type": "bool" },
+      { "id": "ss_5", "name": "extract_rules", "type": "json" },
+      { "id": "ss_6", "name": "prefix_strip", "type": "text" },
+      { "id": "ss_7", "name": "suffix_strip", "type": "text" },
+      { "id": "ss_8", "name": "regex_replace", "type": "text" },
+      { "id": "ss_9", "name": "regex_with", "type": "text" },
+      { "id": "ss_10", "name": "sku_prefix_match", "type": "bool" },
+      { "id": "ss_11", "name": "sku_exact_match", "type": "bool" },
+      { "id": "ss_c", "name": "created", "type": "autodate", "system": false, "onCreate": true, "onUpdate": false },
+      { "id": "ss_u", "name": "updated", "type": "autodate", "system": false, "onCreate": true, "onUpdate": true }
+    ]
+  },
+  {
+    "id": "pbc_7000000011",
+    "name": "impersonate_tokens",
+    "type": "base",
+    "system": false,
+    "listRule": null, "viewRule": null, "createRule": null, "updateRule": null, "deleteRule": null,
+    "indexes": [],
+    "fields": [
+      { "id": "imp_id", "name": "id", "type": "text", "system": true, "required": true, "primaryKey": true, "autogeneratePattern": "[a-z0-9]{15}", "pattern": "^[a-z0-9]+$" },
+      { "id": "imp_1", "name": "token", "type": "text", "required": true },
+      { "id": "imp_2", "name": "customer_code", "type": "text", "required": true },
+      { "id": "imp_3", "name": "customer_name", "type": "text" },
+      { "id": "imp_4", "name": "expires_at", "type": "date", "required": true },
+      { "id": "imp_5", "name": "used", "type": "bool" },
+      { "id": "imp_c", "name": "created", "type": "autodate", "system": false, "onCreate": true, "onUpdate": false },
+      { "id": "imp_u", "name": "updated", "type": "autodate", "system": false, "onCreate": true, "onUpdate": true }
+    ]
+  },
+  {
+    "id": "pbc_7000000012",
+    "name": "jt_config",
+    "type": "base",
+    "system": false,
+    "listRule": null, "viewRule": null, "createRule": null, "updateRule": null, "deleteRule": null,
+    "indexes": [],
+    "fields": [
+      { "id": "jtc_id", "name": "id", "type": "text", "system": true, "required": true, "primaryKey": true, "autogeneratePattern": "[a-z0-9]{15}", "pattern": "^[a-z0-9]+$" },
+      { "id": "jtc_1", "name": "k", "type": "text", "required": true },
+      { "id": "jtc_2", "name": "v", "type": "text" },
+      { "id": "jtc_c", "name": "created", "type": "autodate", "system": false, "onCreate": true, "onUpdate": false },
+      { "id": "jtc_u", "name": "updated", "type": "autodate", "system": false, "onCreate": true, "onUpdate": true }
+    ]
+  },
+  {
+    "id": "pbc_7000000013",
+    "name": "jt_clients",
+    "type": "base",
+    "system": false,
+    "listRule": null, "viewRule": null, "createRule": null, "updateRule": null, "deleteRule": null,
+    "indexes": [],
+    "fields": [
+      { "id": "jtcl_id", "name": "id", "type": "text", "system": true, "required": true, "primaryKey": true, "autogeneratePattern": "[a-z0-9]{15}", "pattern": "^[a-z0-9]+$" },
+      { "id": "jtcl_1", "name": "username", "type": "text", "required": true },
+      { "id": "jtcl_2", "name": "password_hash", "type": "text", "required": true },
+      { "id": "jtcl_3", "name": "name", "type": "text" },
+      { "id": "jtcl_4", "name": "company", "type": "text" },
+      { "id": "jtcl_5", "name": "email", "type": "text" },
+      { "id": "jtcl_6", "name": "phone", "type": "text" },
+      { "id": "jtcl_7", "name": "client_code", "type": "text" },
+      { "id": "jtcl_c", "name": "created", "type": "autodate", "system": false, "onCreate": true, "onUpdate": false },
+      { "id": "jtcl_u", "name": "updated", "type": "autodate", "system": false, "onCreate": true, "onUpdate": true }
+    ]
+  },
+  {
+    "id": "pbc_7000000014",
+    "name": "jt_orders",
+    "type": "base",
+    "system": false,
+    "listRule": null, "viewRule": null, "createRule": null, "updateRule": null, "deleteRule": null,
+    "indexes": [],
+    "fields": [
+      { "id": "jto_id", "name": "id", "type": "text", "system": true, "required": true, "primaryKey": true, "autogeneratePattern": "[a-z0-9]{15}", "pattern": "^[a-z0-9]+$" },
+      { "id": "jto_1", "name": "reference_no", "type": "text", "required": true },
+      { "id": "jto_2", "name": "data", "type": "json" },
+      { "id": "jto_3", "name": "status", "type": "text" },
+      { "id": "jto_4", "name": "tracking_no", "type": "text" },
+      { "id": "jto_5", "name": "jt_order_id", "type": "text" },
+      { "id": "jto_6", "name": "label_url", "type": "text" },
+      { "id": "jto_7", "name": "sync_error", "type": "text" },
+      { "id": "jto_8", "name": "client_code", "type": "text" },
+      { "id": "jto_9", "name": "client_name", "type": "text" },
+      { "id": "jto_c", "name": "created", "type": "autodate", "system": false, "onCreate": true, "onUpdate": false },
+      { "id": "jto_u", "name": "updated", "type": "autodate", "system": false, "onCreate": true, "onUpdate": true }
+    ]
+  },
+  {
+    "id": "pbc_7000000015",
+    "name": "jt_addresses",
+    "type": "base",
+    "system": false,
+    "listRule": null, "viewRule": null, "createRule": null, "updateRule": null, "deleteRule": null,
+    "indexes": [],
+    "fields": [
+      { "id": "jta_id", "name": "id", "type": "text", "system": true, "required": true, "primaryKey": true, "autogeneratePattern": "[a-z0-9]{15}", "pattern": "^[a-z0-9]+$" },
+      { "id": "jta_1", "name": "client_code", "type": "text", "required": true },
+      { "id": "jta_2", "name": "alias", "type": "text", "required": true },
+      { "id": "jta_3", "name": "name", "type": "text" },
+      { "id": "jta_4", "name": "company", "type": "text" },
+      { "id": "jta_5", "name": "phone", "type": "text" },
+      { "id": "jta_6", "name": "postcode", "type": "text" },
+      { "id": "jta_7", "name": "colonia", "type": "text" },
+      { "id": "jta_8", "name": "city", "type": "text" },
+      { "id": "jta_9", "name": "state", "type": "text" },
+      { "id": "jta_10", "name": "street", "type": "text" },
+      { "id": "jta_11", "name": "interior", "type": "text" },
+      { "id": "jta_12", "name": "reference_text", "type": "text" },
+      { "id": "jta_c", "name": "created", "type": "autodate", "system": false, "onCreate": true, "onUpdate": false },
+      { "id": "jta_u", "name": "updated", "type": "autodate", "system": false, "onCreate": true, "onUpdate": true }
+    ]
+  }
+]

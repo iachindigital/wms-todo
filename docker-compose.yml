@@ -1,0 +1,27 @@
+services:
+  wms-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_DEFAULT_TENANT_ID: ${NEXT_PUBLIC_DEFAULT_TENANT_ID}
+    container_name: wms-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      # ── PocketBase（内网地址，容器访问宿主机）
+      POCKETBASE_URL: http://172.17.0.1:8090
+      POCKETBASE_ADMIN_EMAIL: ${POCKETBASE_ADMIN_EMAIL}
+      POCKETBASE_ADMIN_PASSWORD: ${POCKETBASE_ADMIN_PASSWORD}
+      # ── 应用配置
+      NEXT_PUBLIC_DEFAULT_TENANT_ID: ${NEXT_PUBLIC_DEFAULT_TENANT_ID}
+      ENCRYPTION_SECRET: ${ENCRYPTION_SECRET}
+      SYNC_SECRET: ${SYNC_SECRET:-wms2026autoSync}
+      # ── 领星 API
+      LINGXING_AUTH_URL: ${LINGXING_AUTH_URL:-https://openapi.lingxing.com/erp/sc/auth/token}
+      LINGXING_API_BASE_URL: ${LINGXING_API_BASE_URL:-https://openapi.lingxing.com}
+    mem_limit: 3g
+    memswap_limit: 6g
